@@ -1,0 +1,132 @@
+=====================================
+RAN SIGNAL QUALITY ANALYSIS REPORT
+=====================================
+Report Generated: 2025-07-19 17:59:33 IST
+
+CELL SIGNAL STRENGTH RANKINGS (BOTTOM 10)
+=====================================
+Rank | CellID    | Avg Signal | Event Count | Location
+-----|-----------|------------|-------------|------------------
+1    | CELL_0013 | -119.0 dBm | 1           | Lat:1.36, Lon:103.81
+2    | CELL_0043 | -118.0 dBm | 1           | Lat:1.33, Lon:103.81
+3    | CELL_0049 | -118.0 dBm | 1           | Lat:1.36, Lon:103.84
+4    | CELL_0007 | -118.0 dBm | 1           | Lat:1.35, Lon:103.84
+5    | CELL_0098 | -117.0 dBm | 1           | Lat:1.34, Lon:103.79
+6    | CELL_0051 | -116.0 dBm | 1           | Lat:1.36, Lon:103.80
+7    | CELL_0021 | -115.0 dBm | 1           | Lat:1.36, Lon:103.83
+8    | CELL_0010 | -115.0 dBm | 1           | Lat:1.35, Lon:103.83
+9    | CELL_0028 | -113.0 dBm | 1           | Lat:1.37, Lon:103.83
+10   | CELL_0062 | -112.0 dBm | 1           | Lat:1.35, Lon:103.83
+
+POOR SIGNAL AREAS (< -100 dBm)
+=====================================
+Area ID | Lat Range      | Lon Range      | Avg Signal | Event Count
+--------|----------------|----------------|------------|------------
+AREA_A1 | 1.37-1.37       | 103.81-103.81   | -107.0 dBm | 1
+AREA_B1 | 1.36-1.36       | 103.81-103.81   | -111.0 dBm | 2
+AREA_C1 | 1.33-1.33       | 103.84-103.84   | -101.0 dBm | 1
+AREA_D1 | 1.36-1.36       | 103.82-103.82   | -114.0 dBm | 1
+AREA_E1 | 1.37-1.37       | 103.83-103.83   | -113.0 dBm | 1
+
+SIGNAL QUALITY DISTRIBUTION
+=====================================
+Quality Band    | Signal Range   | Events     | Percentage
+----------------|----------------|------------|------------
+Excellent       | > -70 dBm       | 0           | 0.0%
+Good            | -70 to -85 dBm  | 8           | 16.0%
+Fair            | -85 to -90 dBm  | 5           | 10.0%
+Poor            | -90 to -100 dBm | 12          | 24.0%
+Critical        | < -100 dBm      | 25          | 50.0%
+
+WEAK SIGNAL ZONE SUMMARY
+=====================================
+Total Distinct Zones Identified: 42
+Critical Zones (< -100 dBm): 19
+High Priority Zones: 12
+Medium Priority Zones: 7
+Zones Requiring Immediate Attention: 10
+=====================================
+4G vs 5G TECHNOLOGY COMPARISON REPORT
+=====================================
+Report Generated: 2025-07-19 17:59:33 IST
+
+TECHNOLOGY PERFORMANCE COMPARISON
+=====================================
+
+SIGNAL STRENGTH COMPARISON:
+Technology | Avg Signal | Min Signal | Max Signal | Std Deviation | Sample Size
+-----------|------------|------------|------------|---------------|------------
+4G         | 0.0 dBm  | 0.0 dBm | 0.0 dBm  | 0.0 dBm      | 0
+5G         | 0.0 dBm  | 0.0 dBm | 0.0 dBm  | 0.0 dBm      | 0
+
+Signal Quality Distribution:
+Quality Level | 4G Events | 4G %   | 5G Events | 5G %   | 5G Advantage
+--------------|-----------|--------|-----------|--------|--------------
+Excellent     | 0   | NaN%  | 0   | NaN%  | NaN%
+Good          | 0  | NaN%  | 0   | NaN%  | NaN%
+Fair          | 0  | NaN%  | 0   | NaN%  | NaN%
+Poor          | 0   | NaN%  | 0    | NaN%   | NaN%
+
+THROUGHPUT PERFORMANCE:
+Technology | Avg Throughput | Peak Throughput | Min Throughput | Efficiency
+-----------|----------------|-----------------|----------------|------------
+4G         | 0.0 Mbps     | 0.0 Mbps      | 0.0 Mbps      | NaNx
+5G         | 0.0 Mbps     | 0.0 Mbps      | 0.0 Mbps      | NaNx
+
+DROP RATE ANALYSIS:
+Technology | Total Events | Drops | Drop Rate | MTBF (hours) | Reliability Score
+-----------|--------------|-------|-----------|--------------|------------------
+4G         | 0     | 0| NaN%      | Infinity         | NaN%
+5G         | 0     | 0| NaN%      | Infinity         | NaN%
+=====================================
+TEMPORAL ANALYSIS REPORT
+=====================================
+Report Generated: 2025-07-19T12:29:33.503Z IST
+Analysis Period: 2025-06-18 to 2025-06-18
+
+PEAK HOUR CONGESTION ANALYSIS 
+=====================================
+Time-based Congestion Distribution:
+
+HOURLY CONGESTION PATTERN:
+Hour  | Total Events | Congestion Events | Congestion Rate | Congested Cells
+------|--------------|-------------------|-----------------|-----------------
+00:00 | 0            | 0                 | 0.0%            | 0
+01:00 | 0            | 0                 | 0.0%            | 0
+02:00 | 0            | 0                 | 0.0%            | 0
+03:00 | 0            | 0                 | 0.0%            | 0
+04:00 | 0            | 0                 | 0.0%            | 0
+05:00 | 0            | 0                 | 0.0%            | 0
+06:00 | 0            | 0                 | 0.0%            | 0
+07:00 | 0            | 0                 | 0.0%            | 0
+08:00 | 33           | 7                 | 21.2%           | 7 ← Peak Hour
+09:00 | 17           | 3                 | 17.6%           | 3
+10:00 | 0            | 0                 | 0.0%            | 0
+11:00 | 0            | 0                 | 0.0%            | 0
+12:00 | 0            | 0                 | 0.0%            | 0
+13:00 | 0            | 0                 | 0.0%            | 0
+14:00 | 0            | 0                 | 0.0%            | 0
+15:00 | 0            | 0                 | 0.0%            | 0
+16:00 | 0            | 0                 | 0.0%            | 0
+17:00 | 0            | 0                 | 0.0%            | 0
+18:00 | 0            | 0                 | 0.0%            | 0
+19:00 | 0            | 0                 | 0.0%            | 0
+20:00 | 0            | 0                 | 0.0%            | 0
+21:00 | 0            | 0                 | 0.0%            | 0
+22:00 | 0            | 0                 | 0.0%            | 0
+23:00 | 0            | 0                 | 0.0%            | 0
+
+CELL-SPECIFIC PEAK HOUR PATTERNS:
+CellID    | Peak Hour     | Peak Congestion | Off-Peak Congestion | Ratio  | Latitude   | Longitude
+----------|---------------|-----------------|---------------------|--------|------------|----------
+CELL_0083 | 09:00         | 1               | 0                   | Inf    | 1.363017   | 103.829712
+CELL_0057 | 08:00         | 1               | 0                   | Inf    | 1.363613   | 103.835257
+CELL_0075 | 08:00         | 1               | 0                   | Inf    | 1.356191   | 103.820122
+CELL_0045 | 08:00         | 1               | 0                   | Inf    | 1.324867   | 103.843420
+CELL_0003 | 08:00         | 1               | 0                   | Inf    | 1.328200   | 103.808449
+CELL_0010 | 08:00         | 1               | 0                   | Inf    | 1.346817   | 103.831315
+CELL_0064 | 08:00         | 1               | 0                   | Inf    | 1.338684   | 103.798184
+CELL_0044 | 08:00         | 1               | 0                   | Inf    | 1.359091   | 103.817635
+CELL_0098 | 09:00         | 1               | 0                   | Inf    | 1.339441   | 103.792777
+CELL_0066 | 09:00         | 1               | 0                   | Inf    | 1.373158   | 103.791964
+

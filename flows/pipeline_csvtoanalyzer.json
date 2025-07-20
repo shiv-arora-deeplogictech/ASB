@@ -1,0 +1,22 @@
+{
+    "flow":{
+        "name":"CSV to Analyzer report",
+        "disabled":false,
+        "expandRouteProperties": true
+    },
+    "listener": {
+        "type":"file", 
+        "isMessageGenerator": true,
+        "path":"{{{ESB_DIR}}}/appendedCSV/*.csv",
+        "donePath":"{{{ESB_DIR}}}/testing/processing"
+    },
+    "output": {
+        "type":"js",
+        "dependencies":["listener"],
+        "csvDirectory":"{{{ESB_DIR}}}/testing/processing",
+        "analyzerPaths":"{{{ESB_DIR}}}/custom/dbAnalyzer/analyzers",
+        "donePath":"{{{ESB_DIR}}}/testing/out",
+        "module":"{{{ESB_DIR}}}/custom/dbAnalyzer/routes/analyzer.js"
+    }
+    
+}
