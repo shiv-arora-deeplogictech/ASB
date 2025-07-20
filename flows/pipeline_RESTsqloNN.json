@@ -1,0 +1,36 @@
+{
+    "flow": {
+      "name": "SQL Query REST Flow to NeuraNet",
+      "disabled": false,
+      "expandRouteProperties": true
+    },
+    "listener": {
+      "type": "rest_listener",
+      "isMessageGenerator": true,
+      "url": "/sqlres",
+      "host": "localhost",
+      "port": 3000,
+      "allow_origin": "*",
+      "timeout": 120000
+    },
+    "route0": {
+      "type": "js",
+      "isAsync": true,
+      "module": "{{{ESB_DIR}}}/routes/sqlqueryhandler.js",
+      "dependencies": ["listener"]
+    },
+    "route.error": {
+      "type": "js",
+      "dependencies": [["listener.error"], ["route0.error"]],
+      "js": "message.content.sql_res = null;"
+    },
+    "output": {
+      "type": "rest_responder",
+      "dependencies": [["route.error"], ["route0"]]
+    },
+    "garbagecollector": {
+      "type": "simple",
+      "dependencies": "output",
+      "isMessageConsumer": true
+    }
+  }

@@ -1,0 +1,31 @@
+{
+    "flow":{
+        "name":"XML to DB",
+        "disabled":false,
+        "expandRouteProperties": true
+    },
+    "listener": {
+        "type":"file", 
+        "isMessageGenerator": true,
+        "path":"{{{ESB_DIR}}}/testing/in/*.xml",
+        "donePath":"{{{ESB_DIR}}}/testing/processing"
+    },
+    "route0":{
+        "type": "filereader",
+        "dependencies":["listener"],
+        "donePath":"{{{ESB_DIR}}}/testing/done",
+        "encoding":"utf8"
+    },
+    "route1": {
+        "type":"js",
+        "dependencies":["route0"],
+        "csvOutputDirectory":"{{{ESB_DIR}}}/custom/appendedCSV",
+        "module":"{{{ESB_DIR}}}/custom/dbAnalyzer/routes/xmltocsv.js"
+    },
+    "output": {
+        "type":"js",
+        "dependencies":["route1"],
+        "module":"{{{ESB_DIR}}}/custom/dbAnalyzer/routes/dbwriter.js"
+    }
+    
+}

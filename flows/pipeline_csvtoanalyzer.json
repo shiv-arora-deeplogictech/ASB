@@ -1,22 +1,28 @@
 {
     "flow":{
-        "name":"CSV to Analyzer report",
+        "name":"Rest API to NeuraNet Analyzer",
         "disabled":false,
         "expandRouteProperties": true
     },
     "listener": {
-        "type":"file", 
-        "isMessageGenerator": true,
-        "path":"{{{ESB_DIR}}}/appendedCSV/*.csv",
-        "donePath":"{{{ESB_DIR}}}/testing/processing"
+      "type": "rest_listener",
+      "isMessageGenerator": true,
+      "url": "/fetchDoc",
+      "host": "localhost",
+      "port": 5000,
+      "allow_origin": "*",
+      "timeout": 120000
     },
-    "output": {
+    "route0": {
         "type":"js",
         "dependencies":["listener"],
-        "csvDirectory":"{{{ESB_DIR}}}/testing/processing",
+        "csvDirectory":"{{{ESB_DIR}}}/custom/appendedCSV",
         "analyzerPaths":"{{{ESB_DIR}}}/custom/dbAnalyzer/analyzers",
         "donePath":"{{{ESB_DIR}}}/testing/out",
         "module":"{{{ESB_DIR}}}/custom/dbAnalyzer/routes/analyzer.js"
+    },
+    "output": {
+      "type": "rest_responder",
+      "dependencies": ["route0","listener"]
     }
-    
 }

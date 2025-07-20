@@ -1,0 +1,57 @@
+{
+    "flow":{
+        "name":"XML to NN",
+        "disabled":true,
+        "expandRouteProperties": true
+    },
+    "listener": {
+        "type":"file", 
+        "isMessageGenerator": true,
+        "path":"{{{ESB_DIR}}}/testing/in/*.xml",
+        "donePath":"{{{ESB_DIR}}}/testing/processing"
+    },
+    "route0":{
+        "type": "filereader",
+        "dependencies":["listener"],
+        "donePath":"{{{ESB_DIR}}}/testing/done",
+        "encoding":"utf8"
+    },
+    "route1": {
+        "type":"xmltocsv",
+        "dependencies":["route0"]
+    },
+    "route2": {
+        "type":"dbwriter",
+        "dependencies":["route1"]
+    },
+     "route3": {
+        "type": "filewriter",
+        "dependencies":"route2",
+        "interceptor_js": "filewriter.path='{{{ESB_DIR}}}/testing/out/'+require('path').parse(message.env.filepath).name+'.csv';",
+        "prettyJSON": 4,
+        "append": false,
+        "writeCloseTimeout": 5000
+    },
+    "route4": {
+          "type":"js",
+          "dependencies":["route3"],
+          "id": "newuser1@tekmonks.com",
+          "org": "tekmonks",
+          "aiappid": "a",
+          "module":"{{{ESB_DIR}}}/custom/injestor/injestor.js"
+      },
+    "output": {
+          "type": "rest",
+          "dependencies":["route4"],
+          "host":"localhost",
+          "port":9090,
+          "isSecure": true,
+          "method":"post",
+          "path": "/apps/neuranet/indexdoc",
+          "timeout": 180000,
+          "sslObj": {"rejectUnauthorized": false},
+          "headers":["USER-AGENT: JSON_ESB", "ACCEPT: application/json", 
+            "X-API-KEY: 6c1fcadd-dcf0-40b9-ac90-fa4d24c08b46"]
+      }
+    
+}

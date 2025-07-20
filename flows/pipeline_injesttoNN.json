@@ -1,0 +1,35 @@
+{
+      "flow":{
+          "name":"Ingest To Neuranet",
+          "disabled":true,
+          "expandRouteProperties": true
+      },
+      "listener": {
+          "type":"file", 
+          "isMessageGenerator": true,
+          "path":"{{{ESB_DIR}}}/testing/out/*.csv",
+          "donePath":"{{{ESB_DIR}}}/testing/processing"
+      },
+      "route0": {
+          "type":"js",
+          "dependencies":["listener"],
+          "id": "newuser1@tekmonks.com",
+          "org": "tekmonks",
+          "aiappid": "tkmaiapp",
+          "cmspath": "uploads",
+          "module":"{{{ESB_DIR}}}/custom/web_scraper/ingest.js"
+      },
+      "output": {
+          "type": "rest",
+          "dependencies":["route0"],
+          "host":"neuranet.app",
+          "port":9090,
+          "isSecure": true,
+          "method":"post",
+          "path": "/apps/neuranet/indexdoc",
+          "timeout": 180000,
+          "sslObj": {"rejectUnauthorized": false},
+          "headers":["USER-AGENT: JSON_ESB", "ACCEPT: application/json", 
+            "X-API-KEY: <your_x_api_key>"]
+      }
+}
